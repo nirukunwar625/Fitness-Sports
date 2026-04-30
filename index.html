@@ -1,232 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fitness & Sports Store</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness & Sports Store</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+}
 
-        header {
-            background: #111;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+header {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
 
-        nav {
-            background: #222;
-            padding: 10px;
-            text-align: center;
-        }
+nav {
+    background: #222;
+    padding: 12px;
+    text-align: center;
+}
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        nav a:hover {
-            color: orange;
-        }
+nav a:hover {
+    color: #00c3ff;
+}
 
-        .hero {
-            background: url('https://images.unsplash.com/photo-1558611848-73f7eb4001ab') no-repeat center/cover;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
-        }
+.hero {
+    background: url('https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1600') center/cover no-repeat;
+    color: white;
+    padding: 120px 20px;
+    text-align: center;
+}
 
-        section {
-            padding: 40px;
-        }
+.hero h1 {
+    font-size: 48px;
+}
 
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+section {
+    padding: 40px;
+}
 
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-        .card {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
 
-        .card img {
-            width: 100%;
-            border-radius: 10px;
-        }
+.card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
 
-        .card button {
-            background: orange;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 10px;
-            cursor: pointer;
-            color: white;
-            border-radius: 5px;
-        }
+.card:hover {
+    transform: scale(1.05);
+}
 
-        footer {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-    </style>
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+button {
+    background: #00c3ff;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #008bb5;
+}
+
+footer {
+    background: #000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+
 </head>
-
 <body>
 
 <header>
     <h1>Fitness & Sports Store</h1>
-    <p>Your One Stop Shop for Fitness Gear</p>
+    <p>Premium Gear for Athletes</p>
 </header>
 
 <nav>
     <a href="#clothes">Clothes</a>
     <a href="#shoes">Shoes</a>
     <a href="#bags">Bags</a>
-    <a href="#proteins">Proteins</a>
+    <a href="#protein">Protein</a>
 </nav>
 
 <div class="hero">
-    <h1>Stay Fit. Stay Strong.</h1>
-    <p>Best sports products for your active lifestyle</p>
+    <h1>Train Hard. Stay Strong.</h1>
+    <p>High Quality Fitness Products</p>
 </div>
 
 <!-- CLOTHES -->
 <section id="clothes">
-    <h2>Sports Clothes</h2>
-    <div class="products">
+<h2>Sports Clothes</h2>
+<div class="products">
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
-            <h3>Gym T-Shirt</h3>
-            <p>Comfortable breathable fabric</p>
-            <button>Buy Now</button>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=800">
+<div class="card-content">
+<h3>Gym T-Shirt</h3>
+<p>Breathable & comfortable</p>
+<button>Buy Now</button>
+</div>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e">
-            <h3>Sports Shorts</h3>
-            <p>Lightweight and flexible</p>
-            <button>Buy Now</button>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=800">
+<div class="card-content">
+<h3>Sports Shorts</h3>
+<p>Lightweight training wear</p>
+<button>Buy Now</button>
+</div>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1514996937319-344454492b37">
-            <h3>Track Suit</h3>
-            <p>Perfect for running</p>
-            <button>Buy Now</button>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1514996937319-344454492b37?q=80&w=800">
+<div class="card-content">
+<h3>Track Suit</h3>
+<p>Perfect for running</p>
+<button>Buy Now</button>
+</div>
+</div>
 
-    </div>
+</div>
 </section>
 
 <!-- SHOES -->
 <section id="shoes">
-    <h2>Sports Shoes</h2>
-    <div class="products">
+<h2>Sports Shoes</h2>
+<div class="products">
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
-            <h3>Running Shoes</h3>
-            <p>High performance running shoes</p>
-            <button>Buy Now</button>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=800">
+<div class="card-content">
+<h3>Running Shoes</h3>
+<p>High performance</p>
+<button>Buy Now</button>
+</div>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
-            <h3>Training Shoes</h3>
-            <p>Perfect for gym workouts</p>
-            <button>Buy Now</button>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800">
+<div class="card-content">
+<h3>Training Shoes</h3>
+<p>Gym ready</p>
+<button>Buy Now</button>
+</div>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1600180758890-6c1f5e2c7b7c">
-            <h3>Football Shoes</h3>
-            <p>Designed for performance</p>
-            <button>Buy Now</button>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600180758890-6c1f5e2c7b7c?q=80&w=800">
+<div class="card-content">
+<h3>Football Shoes</h3>
+<p>Best grip</p>
+<button>Buy Now</button>
+</div>
+</div>
 
-    </div>
+</div>
 </section>
 
 <!-- BAGS -->
 <section id="bags">
-    <h2>Sports Bags</h2>
-    <div class="products">
+<h2>Sports Bags</h2>
+<div class="products">
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1585386959984-a41552231658">
-            <h3>Gym Bag</h3>
-            <p>Spacious and durable</p>
-            <button>Buy Now</button>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1585386959984-a41552231658?q=80&w=800">
+<div class="card-content">
+<h3>Gym Bag</h3>
+<p>Spacious & strong</p>
+<button>Buy Now</button>
+</div>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7">
-            <h3>Backpack</h3>
-            <p>Perfect for daily use</p>
-            <button>Buy Now</button>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=800">
+<div class="card-content">
+<h3>Backpack</h3>
+<p>Daily use</p>
+<button>Buy Now</button>
+</div>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1583000264526-c5b0c1aee1a3">
-            <h3>Travel Bag</h3>
-            <p>Carry your gear easily</p>
-            <button>Buy Now</button>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1583000264526-c5b0c1aee1a3?q=80&w=800">
+<div class="card-content">
+<h3>Travel Bag</h3>
+<p>Carry your gear</p>
+<button>Buy Now</button>
+</div>
+</div>
 
-    </div>
+</div>
 </section>
 
-<!-- PROTEINS -->
-<section id="proteins">
-    <h2>Protein Supplements</h2>
-    <div class="products">
+<!-- PROTEIN -->
+<section id="protein">
+<h2>Protein Supplements</h2>
+<div class="products">
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1579722821273-0f6c6a0f8c0c">
-            <h3>Whey Protein</h3>
-            <p>Build muscle effectively</p>
-            <button>Buy Now</button>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c?q=80&w=800">
+<div class="card-content">
+<h3>Whey Protein</h3>
+<p>Muscle building</p>
+<button>Buy Now</button>
+</div>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1599050751790-59a3e31fa8c7">
-            <h3>Mass Gainer</h3>
-            <p>Gain weight and strength</p>
-            <button>Buy Now</button>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=800">
+<div class="card-content">
+<h3>Mass Gainer</h3>
+<p>Weight gain support</p>
+<button>Buy Now</button>
+</div>
+</div>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4">
-            <h3>Protein Bars</h3>
-            <p>Healthy and tasty snack</p>
-            <button>Buy Now</button>
-        </div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?q=80&w=800">
+<div class="card-content">
+<h3>Protein Bars</h3>
+<p>Healthy snack</p>
+<button>Buy Now</button>
+</div>
+</div>
 
-    </div>
+</div>
 </section>
 
 <footer>
-    <p>© 2026 Fitness & Sports Store | All Rights Reserved</p>
+<p>© 2026 Fitness & Sports Store</p>
 </footer>
 
 </body>
