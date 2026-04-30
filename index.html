@@ -3,244 +3,566 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FitZone - Fitness Store</title>
-
+    <title>APEX FITNESS | Performance Gear & Supplements</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* 
+           ========================================
+           CSS VARIABLES & RESET
+           ========================================
+        */
+        :root {
+            --primary-color: #d7ff00; /* Neon Lime */
+            --secondary-color: #1a1a1a;
+            --text-light: #ffffff;
+            --text-dark: #111111;
+            --gray-bg: #f4f4f4;
+            --accent-red: #ff4d4d;
+            --transition: all 0.3s ease;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background: #f5f7fa;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
         }
 
+        h1, h2, h3, .logo {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+
+        li { list-style: none; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+
+        /* 
+           ========================================
+           HEADER & NAVIGATION
+           ========================================
+        */
         header {
-            background: #111;
-            color: #fff;
-            padding: 20px 50px;
+            background: var(--secondary-color);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 2px solid var(--primary-color);
         }
 
-        header h1 {
-            font-size: 28px;
+        .logo {
+            font-size: 1.8rem;
             letter-spacing: 2px;
         }
 
-        nav a {
-            color: #fff;
-            margin-left: 20px;
-            text-decoration: none;
-            transition: 0.3s;
+        .logo span { color: var(--primary-color); }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
         }
 
-        nav a:hover {
-            color: #00c6ff;
+        nav ul li a:hover {
+            color: var(--primary-color);
         }
 
+        .nav-icons {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* 
+           ========================================
+           HERO SECTION
+           ========================================
+        */
         .hero {
-            height: 80vh;
-            background: url('https://images.unsplash.com/photo-1558611848-73f7eb4001ab') no-repeat center/cover;
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 5px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background: var(--primary-color);
+            color: var(--text-dark);
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background: #fff;
+            transform: scale(1.05);
+        }
+
+        /* 
+           ========================================
+           CATEGORY SECTION
+           ========================================
+        */
+        .section-padding { padding: 80px 5%; }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .cat-card {
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .cat-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .cat-card:hover img { transform: scale(1.1); }
+
+        .cat-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            text-align: center;
-        }
-
-        .hero h2 {
-            font-size: 48px;
-            background: rgba(0,0,0,0.5);
-            padding: 20px;
-        }
-
-        .section {
-            padding: 60px 50px;
-        }
-
-        .section h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 32px;
-        }
-
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card-content h3 {
-            margin-bottom: 10px;
-        }
-
-        .price {
-            color: #00aaff;
+            color: #fff;
+            font-size: 1.5rem;
             font-weight: bold;
         }
 
-        footer {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
+        /* 
+           ========================================
+           PRODUCT GRID
+           ========================================
+        */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
         }
 
-        @media(max-width: 768px) {
-            .hero h2 {
-                font-size: 30px;
-            }
+        .product-card {
+            background: #fff;
+            border: 1px solid #eee;
+            padding: 15px;
+            transition: var(--transition);
+            position: relative;
+        }
 
-            header {
-                flex-direction: column;
-            }
+        .product-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
 
-            nav {
-                margin-top: 10px;
-            }
+        .product-image {
+            height: 250px;
+            background: #f9f9f9;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image img {
+            max-height: 100%;
+            mix-blend-mode: multiply;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--accent-red);
+            color: #fff;
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .product-info h3 { font-size: 1.1rem; margin-bottom: 5px; }
+        .price { font-weight: bold; color: #555; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 0.9rem; }
+
+        .add-to-cart {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            border: 2px solid var(--secondary-color);
+            background: transparent;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-to-cart:hover {
+            background: var(--secondary-color);
+            color: #fff;
+        }
+
+        /* 
+           ========================================
+           PROTEIN SPECIAL SECTION
+           ========================================
+        */
+        .protein-promo {
+            background: var(--secondary-color);
+            color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .protein-promo > div { flex: 1; min-width: 300px; }
+
+        .promo-content { padding: 10%; }
+        .promo-content h2 { font-size: 3rem; color: var(--primary-color); }
+
+        /* 
+           ========================================
+           FOOTER
+           ========================================
+        */
+        footer {
+            background: #111;
+            color: #777;
+            padding: 60px 5% 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-grid h4 { color: #fff; margin-bottom: 20px; }
+        .footer-grid ul li { margin-bottom: 10px; }
+        .footer-grid ul li a:hover { color: var(--primary-color); }
+
+        .newsletter input {
+            padding: 10px;
+            width: 70%;
+            border: none;
+        }
+
+        .newsletter button {
+            padding: 10px;
+            background: var(--primary-color);
+            border: none;
+            cursor: pointer;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #222;
+            padding-top: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Mobile Nav */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
-
 <body>
 
-<header>
-    <h1>FitZone</h1>
-    <nav>
-        <a href="#clothes">Clothes</a>
-        <a href="#shoes">Shoes</a>
-        <a href="#proteins">Proteins</a>
-    </nav>
-</header>
+    <!-- Header -->
+    <header>
+        <div class="logo">APEX<span>FIT</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#clothes">Apparel</a></li>
+                <li><a href="#shoes">Footwear</a></li>
+                <li><a href="#supps">Supplements</a></li>
+                <li><a href="#gear">Accessories</a></li>
+            </ul>
+        </nav>
+        <div class="nav-icons">
+            <span>🔍</span>
+            <span>👤</span>
+            <span>🛒 (0)</span>
+        </div>
+    </header>
 
-<section class="hero">
-    <h2>Upgrade Your Fitness Lifestyle</h2>
-</section>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>BEYOND LIMITS</h1>
+        <p>Premium performance gear designed for those who never settle. Elevate your training with our new Summer 2026 Collection.</p>
+        <a href="#shop" class="btn">Shop the Collection</a>
+    </section>
 
-<section id="clothes" class="section">
-    <h2>Sports Clothes</h2>
-    <div class="products">
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
-            <div class="card-content">
-                <h3>Gym T-Shirt</h3>
-                <p class="price">$25</p>
+    <!-- Categories -->
+    <section class="section-padding">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="categories">
+            <div class="cat-card">
+                <img src="https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=500&q=80" alt="Clothes">
+                <div class="cat-overlay">ACTIVEWEAR</div>
+            </div>
+            <div class="cat-card">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80" alt="Shoes">
+                <div class="cat-overlay">FOOTWEAR</div>
+            </div>
+            <div class="cat-card">
+                <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?auto=format&fit=crop&w=500&q=80" alt="Proteins">
+                <div class="cat-overlay">SUPPLEMENTS</div>
+            </div>
+            <div class="cat-card">
+                <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80" alt="Bags">
+                <div class="cat-overlay">GEAR & BAGS</div>
             </div>
         </div>
+    </section>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c">
-            <div class="card-content">
-                <h3>Training Shorts</h3>
-                <p class="price">$30</p>
+    <!-- Product Section: Apparel -->
+    <section id="clothes" class="section-padding" style="background: var(--gray-bg);">
+        <h2 class="section-title">Performance Apparel</h2>
+        <div class="product-grid">
+            <!-- Product Item 1 -->
+            <div class="product-card">
+                <div class="badge">HOT</div>
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef03a726ec?auto=format&fit=crop&w=300&q=80" alt="Shirt">
+                </div>
+                <div class="product-info">
+                    <h3>Pro-Dry Compression Tee</h3>
+                    <p class="price">$45.00 <span class="old-price">$60.00</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Product Item 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=300&q=80" alt="Leggings">
+                </div>
+                <div class="product-info">
+                    <h3>Seamless High-Rise Leggings</h3>
+                    <p class="price">$75.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Product Item 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1606902965551-dce093cda6e7?auto=format&fit=crop&w=300&q=80" alt="Shorts">
+                </div>
+                <div class="product-info">
+                    <h3>Elite 2-in-1 Training Shorts</h3>
+                    <p class="price">$38.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Product Item 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=300&q=80" alt="Hoodie">
+                </div>
+                <div class="product-info">
+                    <h3>Thermal Oversized Hoodie</h3>
+                    <p class="price">$85.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475">
-            <div class="card-content">
-                <h3>Fitness Jacket</h3>
-                <p class="price">$60</p>
+    <!-- Promo Section -->
+    <section class="protein-promo" id="supps">
+        <div class="promo-img">
+            <img src="https://images.unsplash.com/photo-1579722820308-d74e571900a9?auto=format&fit=crop&w=800&q=80" alt="Protein">
+        </div>
+        <div class="promo-content">
+            <h2>ISO-PURE ISOLATE</h2>
+            <p>25g Protein. 0g Sugar. Pure Performance. Fuel your muscles with the cleanest isolate on the market.</p>
+            <br>
+            <p>Available in Vanilla, Chocolate, and Strawberry Swirl.</p>
+            <br>
+            <button class="btn">Shop Supplements</button>
+        </div>
+    </section>
+
+    <!-- Product Section: Shoes & Gear -->
+    <section id="shoes" class="section-padding">
+        <h2 class="section-title">Footwear & Gear</h2>
+        <div class="product-grid">
+            <!-- Shoe 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80" alt="Runners">
+                </div>
+                <div class="product-info">
+                    <h3>Apex Velocity Runners</h3>
+                    <p class="price">$120.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Bag 1 -->
+            <div id="gear" class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=300&q=80" alt="Bag">
+                </div>
+                <div class="product-info">
+                    <h3>Military-Grade Duffel 45L</h3>
+                    <p class="price">$95.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Accessory 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=300&q=80" alt="Bottle">
+                </div>
+                <div class="product-info">
+                    <h3>Insulated Shaker Bottle</h3>
+                    <p class="price">$25.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Shoe 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=300&q=80" alt="Lifters">
+                </div>
+                <div class="product-info">
+                    <h3>Iron-Grip Lifting Shoes</h3>
+                    <p class="price">$145.00</p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
             </div>
         </div>
+    </section>
 
-    </div>
-</section>
-
-<section id="shoes" class="section">
-    <h2>Sports Shoes</h2>
-    <div class="products">
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
-            <div class="card-content">
-                <h3>Running Shoes</h3>
-                <p class="price">$80</p>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <h4>About APEX</h4>
+                <p>Founded in 2024, APEX is dedicated to providing the highest quality sports gear for athletes worldwide.</p>
+            </div>
+            <div>
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Return & Exchanges</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Join the Club</h4>
+                <div class="newsletter">
+                    <p>Get 10% off your first order.</p><br>
+                    <input type="email" placeholder="Enter email">
+                    <button>GO</button>
+                </div>
             </div>
         </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6">
-            <div class="card-content">
-                <h3>Training Sneakers</h3>
-                <p class="price">$95</p>
-            </div>
+        <div class="copyright">
+            &copy; 2026 APEX FITNESS CO. All Rights Reserved. Built for Performance.
         </div>
+    </footer>
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1584735175315-9d5df23be620">
-            <div class="card-content">
-                <h3>Sport Shoes Pro</h3>
-                <p class="price">$120</p>
-            </div>
-        </div>
+    <!-- Simple JavaScript for interactivity -->
+    <script>
+        // Simple Add to Cart Notification
+        const cartButtons = document.querySelectorAll('.add-to-cart');
+        let cartCount = 0;
+        const cartDisplay = document.querySelector('.nav-icons span:last-child');
 
-    </div>
-</section>
+        cartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                cartCount++;
+                cartDisplay.innerText = `🛒 (${cartCount})`;
+                button.innerText = 'Added!';
+                button.style.background = '#d7ff00';
+                button.style.color = '#111';
+                
+                setTimeout(() => {
+                    button.innerText = 'Add to Cart';
+                    button.style.background = 'transparent';
+                    button.style.color = 'inherit';
+                }, 2000);
+            });
+        });
 
-<section id="proteins" class="section">
-    <h2>Proteins & Supplements</h2>
-    <div class="products">
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1594737625785-a6cbdabd333c">
-            <div class="card-content">
-                <h3>Whey Protein</h3>
-                <p class="price">$45</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1605296867424-35fc25c9212a">
-            <div class="card-content">
-                <h3>Mass Gainer</h3>
-                <p class="price">$55</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba">
-            <div class="card-content">
-                <h3>Protein Bars</h3>
-                <p class="price">$20</p>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 FitZone | All Rights Reserved</p>
-</footer>
-
+        // Sticky Header Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '0.5rem 5%';
+                header.style.background = 'rgba(26, 26, 26, 0.95)';
+            } else {
+                header.style.padding = '1rem 5%';
+                header.style.background = '#1a1a1a';
+            }
+        });
+    </script>
 </body>
 </html>
